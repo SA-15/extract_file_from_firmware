@@ -22,7 +22,7 @@ jobs:
                                
        - name: Dump
          run: |
-              sudo apt update -y && sudo apt install tar wget zip unzip p7zip -y
+              sudo apt update -y && sudo apt install curl tar wget zip unzip p7zip -y
               mkdir fw && cd fw && wget -c ${{ github.event.inputs.LINK }}
               7za -y x *
               7za -y x "*.tar*"
@@ -31,5 +31,5 @@ jobs:
          uses: actions/upload-artifact@v3
          with:
             name: output.zip
-            path: /home/runner/work/my_tools/my_tools/fw/output.tgz
+            path: /home/runner/work/extract_file_from_firmware/extract_file_from_firmware/fw/output.tgz
             retention-days: 5
